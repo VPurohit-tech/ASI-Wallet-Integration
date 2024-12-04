@@ -50,7 +50,7 @@ export const useWallet = () => {
     }
 
     if (currentAccount && currentNetwork) {
-      const uri = `${currentNetwork.restUrl}cosmos/bank/v1beta1/balances/${currentAccount.bech32Address}?pagination.limit=1000`;
+      const uri = `${currentNetwork.restUrl}/cosmos/bank/v1beta1/balances/${currentAccount.bech32Address}?pagination.limit=1000`;
 
       const data = await api<Balances>(uri);
       const decimal = currentNetwork.currencies[0].decimals;

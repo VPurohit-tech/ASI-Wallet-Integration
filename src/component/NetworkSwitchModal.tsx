@@ -55,32 +55,43 @@ const NetworkSwitchModal: React.FC<NetworkSwitchModalProps> = ({
   };
 
   return (
-    <div className={`modal ${isOpen ? 'open' : ''}`}>
-      <div className="modal-content">
-        <div className="modal-header">
-          <div className="close" onClick={onClose}>
-            <span>&times;</span>
-          </div>
-          <h2>Network Switch</h2>
+    <div
+      className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 transition-opacity ${
+        isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}
+    >
+      <div className="bg-white rounded-lg shadow-lg w-96 p-6">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-semibold">Network Switch</h2>
+          <button
+            onClick={onClose}
+            className="text-gray-500 hover:text-gray-700 text-2xl"
+          >
+            &times;
+          </button>
         </div>
 
-        <div className="modal-body">
+        <div>
           {isLoading ? (
-            <div className="loading">
-              <div className="spinner"></div>
-              <p>Loading networks...</p>
+            <div className="flex flex-col items-center">
+              <div className="w-6 h-6 border-4 border-t-4 border-gray-600 rounded-full animate-spin mb-2"></div>
+              <p className="text-gray-600">Loading networks...</p>
             </div>
           ) : networks && networks.length === 0 ? (
-            <p>No networks found. Please add or configure a network.</p>
+            <p className="text-gray-600">
+              No networks found. Please add or configure a network.
+            </p>
           ) : networks && networks.length === 1 ? (
-            <p>You only have one network. No need to switch.</p>
+            <p className="text-gray-600">
+              You only have one network. No need to switch.
+            </p>
           ) : (
             <>
-              <p>Select a network to switch:</p>
+              <p className="text-gray-700 mb-2">Select a network to switch:</p>
               <select
-                style={{ marginBottom: '15px' }}
                 value={selectedNetwork}
                 onChange={handleNetworkChange}
+                className="w-full p-2 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">Select Network</option>
                 {networks?.map((network) =>
@@ -92,7 +103,7 @@ const NetworkSwitchModal: React.FC<NetworkSwitchModalProps> = ({
                 )}
               </select>
               <button
-                className="asi-button"
+                className="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:opacity-50 transition duration-200"
                 onClick={handleSubmit}
                 disabled={!selectedNetwork}
               >

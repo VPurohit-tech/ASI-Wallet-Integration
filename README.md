@@ -26,6 +26,8 @@ Install dependencies
 npm install
 ```
 
+**Note**: Install Node version 17+ to run the application.
+
 Run development Server
 
 ```
