@@ -44,4 +44,4 @@ npm run dev
 
 ## Documentation
 
-[Link](https://docs.google.com/document/d/1rjoqN5cn-VPCnNRUWbbYQOY1o-2FCGKqwYJkZk6YSNE/edit?tab=t.0#heading=h.gig4mrqkrf4d)
+[Link](https://medium.com/@vaishali.purohit/asi-wallet-integration-fetch-ai-9de68833df5b)
